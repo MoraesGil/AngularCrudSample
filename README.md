@@ -6,6 +6,11 @@ This simple project was generated to learn the framework with basics usage of Ht
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
 
+## Live Demo
+Visit [Here](https://moraesgil.github.io/LiveAngularCrud/) to see a preview.
+
+
+
 ```
 ## Authors
 
