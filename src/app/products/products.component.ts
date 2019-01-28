@@ -41,7 +41,7 @@ export class ProductsComponent implements OnInit {
   }
 
   save(product):void{
-    if (this.selectedProduct.id != null) {
+    if (product != null) {
       this.productService.updateProduct(product)
       .subscribe(()=> {
 
