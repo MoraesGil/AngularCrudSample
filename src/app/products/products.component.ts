@@ -12,11 +12,11 @@ export class ProductsComponent implements OnInit {
   newProduct : Product  = {
     id: null,
     name:"",
-    price: null
+    price: 0
   }
   selectedProduct: {}
 
-  onSelectProduct(product) {
+  onSelectProduct(product) { 
     this.selectedProduct = Object.assign({}, product)
   }
 
@@ -31,7 +31,7 @@ export class ProductsComponent implements OnInit {
   }
 
   delete(productId:number):void{
-    console.log(`id:${productId}`)
+    event.stopPropagation()
     this.productService.deleteProduct(productId)
     .subscribe(()=> {
       this.products = this.products.filter( product => product.id !== productId)
@@ -65,7 +65,7 @@ export class ProductsComponent implements OnInit {
         console.log('Product created')
       })
     }
-    this.cleanProduct() 
+    this.cleanProduct()
   }
   getProducts():void{
     const products = this.productService.getProducts()

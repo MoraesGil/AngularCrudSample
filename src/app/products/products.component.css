@@ -4,5 +4,9 @@ li {
   margin-bottom: 2px;
 }
 li.active {
-  background: #fc0 
+  background: #fc0
+}
+
+td.fit{
+  width: 1%;
 }

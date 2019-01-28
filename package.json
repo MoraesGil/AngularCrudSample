@@ -1,9 +1,8 @@
 {
   "name": "front-angular",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Learning Angular 5 by Angular 5 Tutorial + CRUD App https://youtu.be/3zpdnujI_B0",
   "author": "Gilberto P. Vaz de Moraes<moraesdev@gmail.com>",
-  "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -24,6 +23,7 @@
     "@angular/router": "~7.2.0",
     "angular-in-memory-web-api": "^0.8.0",
     "core-js": "^2.5.4",
+    "ng2-currency-mask": "^5.3.1",
     "rxjs": "~6.3.3",
     "rxjs-compat": "^6.3.3",
     "tslib": "^1.9.0",

@@ -1,29 +1,44 @@
-<div>
-  <div>
-    <h4>Selected Product</h4>
-    name:  <input type="text" [(ngModel)]='selectedProduct.name'>
-    <br>
-    price: <input type="text" [(ngModel)]='selectedProduct.price'>
-    <br>
-    <button (click)="save(selectedProduct)"> Save </button>
-    <button (click)="cleanProduct()" *ngIf="selectedProduct.id !=null"> Cancel </button>
-    <button (click)="delete(selectedProduct.id)" *ngIf="selectedProduct.id !=null"> Delete </button>
-  </div>
-  <h3>Products</h3>
-  <ul>
-    <li
-    *ngFor="let product of products"
-    (click)="onSelectProduct(product)"
-    [class.active] = "selectedProduct.id === product.id"
-    >
-    <div>
-      <div class="">
-        {{product.name}}
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-horizontal">
+      <div class="form-group">
+        <label for="inp1">Name * </label>
+        <input type="text" [(ngModel)]='selectedProduct.name'  class="form-control" id="inp1">
       </div>
-      <div>
-        U$ {{product.price}}
+      <div class="form-group">
+        <label for="inp2">Price *</label>
+        <input type="text" currencyMask [(ngModel)]='selectedProduct.price'  class="form-control" id="inp2">
+      </div>
+
+      <div class="form-group">
+        <button [disabled]="selectedProduct.name =='' || selectedProduct.price <= 0" (click)="save(selectedProduct)" class="btn btn-default"> {{selectedProduct.id==null ? "Save new" : "Save changes"}} </button>
+        <button (click)="cleanProduct()" *ngIf="selectedProduct.id !=null" class="btn btn-default"> Cancel </button>
       </div>
     </div>
-  </li>
-</ul>
+  </div>
+
+  <div class="col-md-12">
+    <h3>Products</h3>
+    <table class="table table-hover table-striped table-bordered">
+      <thead>
+        <th>#</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th> </th>
+      </thead>
+      <tbody>
+        <tr
+        *ngFor="let product of products"
+        (click)="onSelectProduct(product)"
+        [class.info] = "selectedProduct.id === product.id">
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price | currency }}</td>
+        <td class="text-center fit">
+          <button (click)="delete(product.id)" class="btn btn-default btn-xs"> <i class="fa fa-trash"> </i> </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 </div>

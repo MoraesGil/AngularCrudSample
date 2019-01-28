@@ -11,13 +11,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductService } from './product.service';
+import { HomeComponent } from './home/home.component';
+import { CurrencyMaskModule } from "ng2-currency-mask";
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent
+    ProductsComponent,
+    HomeComponent
   ],
   imports: [
+    CurrencyMaskModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,

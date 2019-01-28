@@ -1,8 +1,38 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center"> 
-  <nav>
-    <a routerLink="/">Home </a>
-    <a routerLink="/products">Produtc manager</a>
+<!--The content below is only a placeholder and can be replaced.-->
+<header>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://github.com/moraesgil" target="_blank">MoraesGil<i class="fa fa-github"></i></a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li [routerLinkActive]="['active']">
+            <a routerLink="/">Home <i class="fa fa-home"></i></a>
+          </li>
+          <li  [routerLinkActive]="['active']">
+            <a routerLink="/products"><i class="fa fa-cube"></i> Produtc manager</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="https://github.com/MoraesGil/AngularCrudSample" target="_blank">SourceCode <i class="fa fa-github"></i></a>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
   </nav>
+</header>
+<div class="container">
   <router-outlet></router-outlet>
 </div>
