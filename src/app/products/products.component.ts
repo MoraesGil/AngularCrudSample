@@ -27,7 +27,7 @@ export class ProductsComponent implements OnInit {
     this.getProducts()
   }
   cleanProduct():void{
-    this.selectedProduct = this.newProduct
+    this.selectedProduct =  Object.assign({}, this.newProduct)
   }
 
   delete(productId:number):void{
@@ -41,7 +41,7 @@ export class ProductsComponent implements OnInit {
   }
 
   save(product):void{
-    if (product != null) {
+    if (product.id != null) {
       this.productService.updateProduct(product)
       .subscribe(()=> {
 
@@ -52,13 +52,20 @@ export class ProductsComponent implements OnInit {
       })
     }else
     {
+      //simple id auto-increment wihtout check database
+      var maxid = 0
+      this.products.map(function(obj){
+        if (obj.id > maxid) maxid = obj.id
+      });
+      product.id = maxid+1
+      console.log(product)
       this.productService.addProduct(product)
       .subscribe(()=> {
         this.products.push(product)
         console.log('Product created')
       })
     }
-    this.selectedProduct = this.newProduct
+    this.cleanProduct() 
   }
   getProducts():void{
     const products = this.productService.getProducts()
