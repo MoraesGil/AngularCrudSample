@@ -1,0 +1,29 @@
+<div>
+  <div>
+    <h4>Selected Product</h4>
+    name:  <input type="text" [(ngModel)]='selectedProduct.name'>
+    <br>
+    price: <input type="text" [(ngModel)]='selectedProduct.price'>
+    <br>
+    <button (click)="save(selectedProduct)"> Save </button>
+    <button (click)="cleanProduct()" *ngIf="selectedProduct.id !=null"> Cancel </button>
+    <button (click)="delete(selectedProduct.id)" *ngIf="selectedProduct.id !=null"> Delete </button>
+  </div>
+  <h3>Products</h3>
+  <ul>
+    <li
+    *ngFor="let product of products"
+    (click)="onSelectProduct(product)"
+    [class.active] = "selectedProduct.id === product.id"
+    >
+    <div>
+      <div class="">
+        {{product.name}}
+      </div>
+      <div>
+        U$ {{product.price}}
+      </div>
+    </div>
+  </li>
+</ul>
+</div>

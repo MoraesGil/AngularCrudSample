@@ -1,0 +1,8 @@
+li {
+  border: 1px solid #9a4c4c;
+  list-style-type: none;
+  margin-bottom: 2px;
+}
+li.active {
+  background: #fc0 
+}
